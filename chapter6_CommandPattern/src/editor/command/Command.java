@@ -1,4 +1,25 @@
 package editor.command;
 
-public interface Command {
+import editor.Application;
+import editor.Editor;
+
+public abstract class Command {
+    protected Application app;
+    protected Editor editor;
+    protected String backup;
+
+    public Command(Application app, Editor editor) {
+        this.app = app;
+        this.editor = editor;
+    }
+
+    public void saveBackup(){
+        backup = editor.text;
+    }
+
+    public void undo (){
+        editor.text = backup;
+    }
+
+    abstract boolean execute();
 }
