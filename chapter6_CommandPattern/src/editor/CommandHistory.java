@@ -8,17 +8,16 @@ public class CommandHistory {
 
     private Stack<Command> history = new Stack<>();
 
-    public void push(Command command){
-        history.push(command);
+    public void push(Command c) {
+        history.push(c);
     }
 
-    public Command pop (){
+    public Command pop() {
         return history.pop();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return history.isEmpty();
     }
-
 
 }

@@ -1,25 +1,22 @@
 package editor.command;
 
-import editor.Application;
 import editor.Editor;
 
 public abstract class Command {
-    protected Application app;
-    protected Editor editor;
-    protected String backup;
+    public Editor editor;
+    private String backup;
 
-    public Command(Application app, Editor editor) {
-        this.app = app;
+    Command(Editor editor) {
         this.editor = editor;
     }
 
-    public void saveBackup(){
-        backup = editor.text;
+    void backup() {
+        backup = editor.textField.getText();
     }
 
-    public void undo (){
-        editor.text = backup;
+    public void undo() {
+        editor.textField.setText(backup);
     }
 
-    abstract boolean execute();
+    public abstract boolean execute();
 }
