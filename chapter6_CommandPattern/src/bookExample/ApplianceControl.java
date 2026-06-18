@@ -13,41 +13,34 @@ import java.util.Stack;
 
 public class ApplianceControl {
 
-    Appliance[] appliances = {
-            new CeilingFan("Ceiling Fan"),
-            new CeilingLight("Ceiling Light"),
-            new OutdoorLight("Outdoor Light"),
-            new GardenLight("Garden Light"),
-            new Sprinkler("Sprinkler"),
-            new GarageDoor("Garage Door"),
-            new TV("TV"),
-            new Stereo("Stereo"),
-            new FaucetControl("Faucet Control"),
-            new SecurityControl("Security Control")
-    };
+
+    private Command[] onCommands = new Command[7];
+    private Command[] offCommands = new Command[7];
+
 
     Stack<Command> history = new Stack<>();
 
-    public void setNewAppliance(int slotId, Appliance appliance){
-        appliances[slotId] = appliance;
+    public void setOnCommand(int slot, Command command) {
+        onCommands[slot] = command;
+
     }
 
-
-
-    public void changeApplianceState(int applianceId, boolean state){
-        Command command;
-        Appliance appliance = appliances[applianceId];
-        if(state){
-            command = new OnCommand(appliance);
-        } else{
-            command = new OffCommand(appliance);
-        }
-
-        command.execute();
-        history.push(command);
+    public void setOffCommand(int slot, Command command) {
+        offCommands[slot] = command;
     }
 
-    public void undo(){
+    public void pressOnButton(int id) {
+        onCommands[id].execute();
+        history.push(onCommands[id]);
+    }
+
+    public void pressOffButton(int id) {
+        offCommands[id].execute();
+
+        history.push(offCommands[id]);
+    }
+
+    public void undo() {
         Command command = history.pop();
         command.undo();
     }
