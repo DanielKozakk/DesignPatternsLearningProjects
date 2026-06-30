@@ -1,3 +1,6 @@
+import ownImplementation.adapter.SquareMeterAdapter;
+import ownImplementation.client.Apartment;
+import ownImplementation.service.SquareLegacyCounterService;
 import refactoringGuruJavaExample.adapters.SquarePegAdapter;
 import refactoringGuruJavaExample.round.RoundHole;
 import refactoringGuruJavaExample.square.SquarePeg;
@@ -7,10 +10,10 @@ import refactoringGuruJavaExample.square.SquarePeg;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
-    RoundHole roundHole = new RoundHole(5);
-    SquarePeg squarePeg = new SquarePeg(8);
+    SquareLegacyCounterService squareLegacyCounterService = new SquareLegacyCounterService();
+    SquareMeterAdapter squareMeterAdapter = new SquareMeterAdapter(squareLegacyCounterService, 2,2);
+    Apartment apartment = new Apartment(squareMeterAdapter);
 
-    SquarePegAdapter squarePegAdapter = new SquarePegAdapter(squarePeg);
-
-    System.out.println(roundHole.fits(squarePegAdapter));
+    System.out.println(apartment.isApartmentLarge());
 }
+
