@@ -1,5 +1,9 @@
 import enumerationAdapter.adapter.EnumerationAdapter;
 import enumerationAdapter.client.ClientOfEnumeration;
+import manysubclasses.Sub1;
+import manysubclasses.Sub2;
+import manysubclasses.SubAdapter;
+import manysubclasses.Superclass;
 import ownImplementation.adapter.SquareMeterAdapter;
 import ownImplementation.client.Apartment;
 import ownImplementation.service.SquareLegacyCounterService;
@@ -12,19 +16,15 @@ import refactoringGuruJavaExample.square.SquarePeg;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
-//    SquareLegacyCounterService squareLegacyCounterService = new SquareLegacyCounterService();
-//    SquareMeterAdapter squareMeterAdapter = new SquareMeterAdapter(squareLegacyCounterService, 2,2);
-//    Apartment apartment = new Apartment(squareMeterAdapter);
-//
-//    System.out.println(apartment.isApartmentLarge());
 
-    ClientOfEnumeration client = new ClientOfEnumeration();
+    Superclass sub1 = new Sub1("sub1");
+    Superclass sub2 = new Sub2("sub1");
 
-    List list = new ArrayList<>();
-    Iterator listIterator = list.iterator();
-    EnumerationAdapter enumerationAdapter = new EnumerationAdapter(listIterator);
+    SubAdapter adapter = new SubAdapter("adapter", sub1);
 
-    ClientOfEnumeration clientOfEnumeration = new ClientOfEnumeration();
-    System.out.println(clientOfEnumeration.getEnumeration(enumerationAdapter));
+    adapter.addedFunctionality("new");
+
+    System.out.println(sub1.getName());
+
 }
 
