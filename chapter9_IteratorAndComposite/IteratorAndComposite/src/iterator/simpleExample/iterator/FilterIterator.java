@@ -1,4 +1,4 @@
-package iterator.iterator;
+package iterator.simpleExample.iterator;
 
 
 public class FilterIterator implements Iterator {

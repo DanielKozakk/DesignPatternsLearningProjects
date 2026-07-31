@@ -1,13 +1,12 @@
-package iterator.graph;
+package iterator.simpleExample.myCollection;
 
-import iterator.iterator.BasicIterator;
-import iterator.iterator.Iterator;
-import iterator.iterator.ReverseIterator;
+import iterator.simpleExample.iterator.BasicIterator;
+import iterator.simpleExample.iterator.Iterator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyCollection implements IterableCollection {
+public class MyCollection implements iterator.simpleExample.myCollection.IterableCollection {
 
    public List<String> items = new ArrayList<>();
 

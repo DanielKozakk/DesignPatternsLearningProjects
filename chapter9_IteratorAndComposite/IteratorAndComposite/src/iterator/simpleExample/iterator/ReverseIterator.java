@@ -1,15 +1,16 @@
-package iterator.iterator;
+package iterator.simpleExample.iterator;
 
-import iterator.graph.MyCollection;
+import iterator.simpleExample.myCollection.MyCollection;
 
-public class BasicIterator implements Iterator {
+public class ReverseIterator implements Iterator {
 
     MyCollection myCollection;
 
-    int iterationState = 0;
+    int iterationState;
 
-    public BasicIterator(MyCollection myCollection) {
+    public ReverseIterator(MyCollection myCollection) {
         this.myCollection = myCollection;
+        iterationState = myCollection.items.size() - 1;
     }
 
     @Override
@@ -20,7 +21,7 @@ public class BasicIterator implements Iterator {
         } catch(IndexOutOfBoundsException e){
 
         }
-        iterationState ++;
+        iterationState --;
         return item;
     }
 
