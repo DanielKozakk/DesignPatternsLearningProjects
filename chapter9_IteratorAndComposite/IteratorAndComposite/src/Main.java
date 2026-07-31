@@ -1,4 +1,6 @@
 import iterator.graph.Node;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+import iterator.graph.iterator.Iterator;
+
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
     Node a = new Node("A");
@@ -26,8 +28,27 @@ void main() {
     i.addNeighbour(k);
     e.addNeighbour(l);
 
+    Iterator breathFirst = a.createIterator();
+    Node a2 = breathFirst.getNext();
+    Node b2 = breathFirst.getNext();
+    Node c2 = breathFirst.getNext();
+    Node d2 = breathFirst.getNext();
+    Node e2 = breathFirst.getNext();
+    Node f2 = breathFirst.getNext();
+    Node g2 = breathFirst.getNext();
+    Node h2 = breathFirst.getNext();
+    Node i2 = breathFirst.getNext();
+    Node j2 = breathFirst.getNext();
 
-
-
+    System.out.println(a2);
+    System.out.println(b2);
+    System.out.println(c2);
+    System.out.println(d2);
+    System.out.println(e2);
+    System.out.println(f2);
+    System.out.println(g2);
+    System.out.println(h2);
+    System.out.println(i2);
+    System.out.println(j2);
 
 }
