@@ -1,54 +1,34 @@
 import iterator.graph.Node;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 import iterator.graph.iterator.Iterator;
+import iterator.socialNetwork.Profile;
+import iterator.socialNetwork.SocialSpammer;
+import iterator.socialNetwork.collection.Facebook;
+import iterator.socialNetwork.collection.SocialNetwork;
+import iterator.socialNetwork.iterator.ProfileIterator;
 
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 void main() {
-    Node a = new Node("A");
-    Node b = new Node("B");
-    Node c = new Node("C");
-    Node d = new Node("D");
-    Node e = new Node("E");
-    Node f = new Node("F");
-    Node g = new Node("G");
-    Node h = new Node("H");
-    Node i = new Node("I");
-    Node j = new Node("J");
-    Node k = new Node("K");
-    Node l = new Node("L");
+    Facebook network = new Facebook();
+    SocialSpammer spammer = new SocialSpammer();
 
-    a.addNeighbour(b);
-    b.addNeighbour(c);
-    b.addNeighbour(d);
-    a.addNeighbour(e);
-    e.addNeighbour(f);
-    f.addNeighbour(g);
-    e.addNeighbour(h);
-    h.addNeighbour(i);
-    i.addNeighbour(j);
-    i.addNeighbour(k);
-    e.addNeighbour(l);
+    Profile profile1 = new Profile("A", network);
+    Profile profile2 = new Profile("A", network);
+    Profile profile3 = new Profile("B", network);
 
-    Iterator breathFirst = a.createIterator();
-    Node a2 = breathFirst.getNext();
-    Node b2 = breathFirst.getNext();
-    Node c2 = breathFirst.getNext();
-    Node d2 = breathFirst.getNext();
-    Node e2 = breathFirst.getNext();
-    Node f2 = breathFirst.getNext();
-    Node g2 = breathFirst.getNext();
-    Node h2 = breathFirst.getNext();
-    Node i2 = breathFirst.getNext();
-    Node j2 = breathFirst.getNext();
+    profile1.addFriend(profile2);
+    profile1.addFriend(profile3);
 
-    System.out.println(a2);
-    System.out.println(b2);
-    System.out.println(c2);
-    System.out.println(d2);
-    System.out.println(e2);
-    System.out.println(f2);
-    System.out.println(g2);
-    System.out.println(h2);
-    System.out.println(i2);
-    System.out.println(j2);
-
+    sendSpamToCoworkers(network, spammer, profile1.getId());
 }
+
+        public void sendSpamToFriends(SocialNetwork network, SocialSpammer spammer, int profileId) {
+            ProfileIterator iterator = network.createFriendsIterator(profileId);
+            spammer.send(iterator, "message to friends");
+        }
+
+        public void sendSpamToCoworkers(SocialNetwork network, SocialSpammer spammer, int profileId) {
+            ProfileIterator iterator = network.createCoworkersIterator(profileId);
+            spammer.send(iterator, "message to coworkers");
+        }
+
