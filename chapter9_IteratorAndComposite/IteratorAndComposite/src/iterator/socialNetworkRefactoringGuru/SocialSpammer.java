@@ -1,6 +1,6 @@
-package iterator.socialNetwork;
+package iterator.socialNetworkRefactoringGuru;
 
-import iterator.socialNetwork.iterator.ProfileIterator;
+import iterator.socialNetworkRefactoringGuru.iterator.ProfileIterator;
 
 public class SocialSpammer {
 

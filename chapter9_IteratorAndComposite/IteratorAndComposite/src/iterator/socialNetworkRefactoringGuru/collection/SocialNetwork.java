@@ -1,7 +1,6 @@
-package iterator.socialNetwork.collection;
+package iterator.socialNetworkRefactoringGuru.collection;
 
-import iterator.socialNetwork.Profile;
-import iterator.socialNetwork.iterator.ProfileIterator;
+import iterator.socialNetworkRefactoringGuru.iterator.ProfileIterator;
 
 public interface SocialNetwork {
 

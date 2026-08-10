@@ -1,7 +1,7 @@
-package iterator.socialNetwork.iterator;
+package iterator.socialNetworkRefactoringGuru.iterator;
 
-import iterator.socialNetwork.Profile;
-import iterator.socialNetwork.collection.Facebook;
+import iterator.socialNetworkRefactoringGuru.Profile;
+import iterator.socialNetworkRefactoringGuru.collection.Facebook;
 
 import java.util.List;
 

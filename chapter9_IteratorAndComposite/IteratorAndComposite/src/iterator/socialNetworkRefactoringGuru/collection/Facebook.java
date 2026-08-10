@@ -1,9 +1,9 @@
-package iterator.socialNetwork.collection;
+package iterator.socialNetworkRefactoringGuru.collection;
 
-import iterator.socialNetwork.Profile;
-import iterator.socialNetwork.iterator.FacebookIterator;
-import iterator.socialNetwork.iterator.IteratorType;
-import iterator.socialNetwork.iterator.ProfileIterator;
+import iterator.socialNetworkRefactoringGuru.Profile;
+import iterator.socialNetworkRefactoringGuru.iterator.FacebookIterator;
+import iterator.socialNetworkRefactoringGuru.iterator.IteratorType;
+import iterator.socialNetworkRefactoringGuru.iterator.ProfileIterator;
 
 import java.util.ArrayList;
 import java.util.List;

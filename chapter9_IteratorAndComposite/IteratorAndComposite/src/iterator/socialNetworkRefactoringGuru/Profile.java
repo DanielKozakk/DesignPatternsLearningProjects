@@ -1,6 +1,6 @@
-package iterator.socialNetwork;
+package iterator.socialNetworkRefactoringGuru;
 
-import iterator.socialNetwork.collection.Facebook;
+import iterator.socialNetworkRefactoringGuru.collection.Facebook;
 
 import java.util.ArrayList;
 import java.util.List;
