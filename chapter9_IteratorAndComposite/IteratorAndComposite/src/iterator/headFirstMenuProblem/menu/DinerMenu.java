@@ -3,7 +3,11 @@ package iterator.headFirstMenuProblem.menu;
 import iterator.headFirstMenuProblem.iterator.DinerMenuIterator;
 import iterator.headFirstMenuProblem.iterator.MenuIterator;
 
-public class DinerMenu implements IterableMenu {
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+public class DinerMenu implements IterableMenu, MenuElementHolder {
 
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
@@ -47,4 +51,12 @@ public class DinerMenu implements IterableMenu {
     public int getNumberOfItems() {
         return numberOfItems;
     }
+
+
+    @Override
+    public Collection<MenuElementHolder> getMenuElements() {
+        return Arrays.asList(menuItems);
+
+    }
+
 }

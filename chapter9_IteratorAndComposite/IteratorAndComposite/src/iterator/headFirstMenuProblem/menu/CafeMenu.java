@@ -3,10 +3,13 @@ package iterator.headFirstMenuProblem.menu;
 import iterator.headFirstMenuProblem.iterator.CafeMenuIterator;
 import iterator.headFirstMenuProblem.iterator.MenuIterator;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public class CafeMenu implements IterableMenu {
+public class CafeMenu implements IterableMenu, MenuElementHolder {
     Map<String, MenuItem> menuItems = new HashMap<String, MenuItem>();
 
 
@@ -37,5 +40,10 @@ public class CafeMenu implements IterableMenu {
     @Override
     public MenuIterator createIterator() {
         return new CafeMenuIterator(this);
+    }
+
+    @Override
+    public Collection<MenuElementHolder> getMenuElements() {
+        return menuItems.values().stream().map(menuItem -> (MenuElementHolder) menuItem).toList();
     }
 }

@@ -4,9 +4,10 @@ import iterator.headFirstMenuProblem.iterator.MenuIterator;
 import iterator.headFirstMenuProblem.iterator.PankackeHouseMenuIterator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class PancakeHouseMenu implements IterableMenu{
+public class PancakeHouseMenu implements IterableMenu, MenuElementHolder {
     List<MenuItem> menuItems = new ArrayList<>();
 
     public PancakeHouseMenu() {
@@ -30,8 +31,8 @@ public class PancakeHouseMenu implements IterableMenu{
                 3.59);
     }
 
-    public void addItem(String name, String description, boolean vegetarian, double price){
-        MenuItem menuItem = new MenuItem(name, description,vegetarian, price);
+    public void addItem(String name, String description, boolean vegetarian, double price) {
+        MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
         this.menuItems.add(menuItem);
     }
 
@@ -42,5 +43,11 @@ public class PancakeHouseMenu implements IterableMenu{
     @Override
     public MenuIterator createIterator() {
         return new PankackeHouseMenuIterator(this);
+    }
+
+    @Override
+    public Collection<MenuElementHolder> getMenuElements() {
+        return menuItems.stream().map(menuItem -> (MenuElementHolder) menuItem).toList();
+
     }
 }

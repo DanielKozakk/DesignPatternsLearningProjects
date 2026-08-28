@@ -1,6 +1,8 @@
 package iterator.headFirstMenuProblem.menu;
 
-public class MenuItem {
+import java.util.List;
+
+public class MenuItem implements MenuElementHolder {
     String name;
     String description;
     double price;
@@ -28,5 +30,10 @@ public class MenuItem {
 
     public boolean isVegetarian() {
         return vegetarian;
+    }
+
+    @Override
+    public List<MenuElementHolder> getMenuElements() {
+        return List.of(this);
     }
 }
