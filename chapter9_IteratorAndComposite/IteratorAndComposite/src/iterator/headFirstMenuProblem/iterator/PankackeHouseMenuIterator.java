@@ -1,5 +1,6 @@
 package iterator.headFirstMenuProblem.iterator;
 
+import iterator.headFirstMenuProblem.menu.MenuItem;
 import iterator.headFirstMenuProblem.menu.PancakeHouseMenu;
 
 public class PankackeHouseMenuIterator implements MenuIterator {

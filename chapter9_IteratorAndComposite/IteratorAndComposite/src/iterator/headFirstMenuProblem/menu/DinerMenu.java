@@ -1,7 +1,6 @@
 package iterator.headFirstMenuProblem.menu;
 
 import iterator.headFirstMenuProblem.iterator.DinerMenuIterator;
-import iterator.headFirstMenuProblem.iterator.MenuItem;
 import iterator.headFirstMenuProblem.iterator.MenuIterator;
 
 public class DinerMenu implements IterableMenu {

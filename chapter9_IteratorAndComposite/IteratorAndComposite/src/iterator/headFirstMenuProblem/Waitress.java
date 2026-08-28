@@ -1,6 +1,6 @@
 package iterator.headFirstMenuProblem;
 
-import iterator.headFirstMenuProblem.iterator.MenuItem;
+import iterator.headFirstMenuProblem.menu.MenuItem;
 import iterator.headFirstMenuProblem.iterator.MenuIterator;
 import iterator.headFirstMenuProblem.menu.IterableMenu;
 

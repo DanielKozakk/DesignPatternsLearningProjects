@@ -1,8 +1,7 @@
 package iterator.headFirstMenuProblem.iterator;
 
 import iterator.headFirstMenuProblem.menu.DinerMenu;
-
-import java.awt.*;
+import iterator.headFirstMenuProblem.menu.MenuItem;
 
 public class DinerMenuIterator implements MenuIterator {
     DinerMenu dinerMenu;
@@ -14,7 +13,7 @@ public class DinerMenuIterator implements MenuIterator {
     }
 
     @Override
-    public MenuItem getNext() {
+    public iterator.headFirstMenuProblem.menu.MenuItem getNext() {
         MenuItem menuItem = null;
         if(hasNext()){
             menuItem = dinerMenu.getMenuItems()[currentPosition];

@@ -1,6 +1,5 @@
 package iterator.headFirstMenuProblem.menu;
 
-import iterator.headFirstMenuProblem.iterator.MenuItem;
 import iterator.headFirstMenuProblem.iterator.MenuIterator;
 import iterator.headFirstMenuProblem.iterator.PankackeHouseMenuIterator;
 

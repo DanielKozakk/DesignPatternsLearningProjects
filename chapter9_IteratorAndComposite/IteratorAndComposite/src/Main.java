@@ -1,4 +1,5 @@
 import iterator.headFirstMenuProblem.Waitress;
+import iterator.headFirstMenuProblem.menu.CafeMenu;
 import iterator.headFirstMenuProblem.menu.DinerMenu;
 import iterator.headFirstMenuProblem.menu.IterableMenu;
 import iterator.headFirstMenuProblem.menu.PancakeHouseMenu;
@@ -14,6 +15,7 @@ void main() {
     List<IterableMenu> menus = new ArrayList<>(){{
         add(new DinerMenu());
         add(new PancakeHouseMenu());
+        add(new CafeMenu());
     }};
 
     Waitress waitress = new Waitress(menus);
