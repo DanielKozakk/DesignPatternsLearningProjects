@@ -4,7 +4,7 @@ import composite.myPredictionWhatCompositeIs.MenuItem;
 import composite.myPredictionWhatCompositeIs.iterator.DessertSubMenuIterator;
 import composite.myPredictionWhatCompositeIs.iterator.MenuIterator;
 import composite.myPredictionWhatCompositeIs.menu.IterableMenu;
-import composite.myPredictionWhatCompositeIs.menu.MenuElementHolder;
+import composite.myPredictionWhatCompositeIs.composite.MenuElementHolder;
 
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
 public class ListDessertSubmenu implements IterableMenu, MenuElementHolder {
 
 
-    List<MenuItem> menuItems = new ArrayList<>();
+    List<MenuElementHolder> menuItems = new ArrayList<>();
 
     private static String name = "Desert SubMenu";
 
@@ -42,26 +42,27 @@ public class ListDessertSubmenu implements IterableMenu, MenuElementHolder {
 
     }
 
-    public List<MenuItem> getMenuItems() {
+    public List<MenuElementHolder> getMenuItems() {
         return menuItems;
     }
 
-    @Override
-    public Collection<MenuElementHolder> getMenuElements() {
-        return menuItems.stream().map(menuItem -> (MenuElementHolder) menuItem).toList();
-    }
-
-    @Override
-    public boolean isContainer() {
-        return true;
-    }
     @Override
     public MenuIterator createIterator() {
         return new DessertSubMenuIterator(this);
     }
 
+
     @Override
-    public String getName() {
-        return name;
+    public void printMenuElementInfo() {
+
+        System.out.println("");
+        System.out.println("MENU: " + name);
+
+        for(MenuElementHolder holder: menuItems){
+            holder.printMenuElementInfo();
+        }
+
+        System.out.println("--------------------------");
+        System.out.println("");
     }
 }

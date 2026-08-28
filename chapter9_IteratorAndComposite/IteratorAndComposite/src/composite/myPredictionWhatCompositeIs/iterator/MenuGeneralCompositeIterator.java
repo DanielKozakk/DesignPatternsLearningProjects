@@ -1,17 +1,18 @@
 package composite.myPredictionWhatCompositeIs.iterator;
 
-import composite.myPredictionWhatCompositeIs.menu.ListMenu;
 import composite.myPredictionWhatCompositeIs.composite.MenuElementHolder;
+import composite.myPredictionWhatCompositeIs.menu.ListMenu;
+import composite.myPredictionWhatCompositeIs.menu.MenuGeneralComposite;
 
 import java.util.List;
 
-public class ListMenuIterator implements MenuIterator{
+public class MenuGeneralCompositeIterator implements MenuIterator{
 
     List<MenuElementHolder> menuItems;
 
     int currentIndex = 0;
-    public ListMenuIterator(ListMenu menu) {
-        this.menuItems = menu.getMenuItems();
+    public MenuGeneralCompositeIterator(MenuGeneralComposite menu) {
+        this.menuItems = menu.getList();
     }
 
     @Override

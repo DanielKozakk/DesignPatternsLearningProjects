@@ -1,10 +1,9 @@
 package composite.myPredictionWhatCompositeIs;
 
 
-import composite.myPredictionWhatCompositeIs.menu.MenuElementHolder;
+import composite.myPredictionWhatCompositeIs.composite.MenuElementHolder;
 
-import java.util.Collection;
-import java.util.List;
+
 
 public class MenuItem implements MenuElementHolder {
     String name;
@@ -36,13 +35,12 @@ public class MenuItem implements MenuElementHolder {
         return vegetarian;
     }
 
-    @Override
-    public Collection<MenuElementHolder> getMenuElements() {
-        return List.of(this);
-    }
 
     @Override
-    public boolean isContainer() {
-        return false;
+    public void printMenuElementInfo() {
+        System.out.println("");
+        System.out.print(getName() + " ");
+        System.out.println(getPrice() + " ");
+        System.out.println(getDescription());
     }
 }

@@ -2,6 +2,7 @@ package composite.myPredictionWhatCompositeIs.menu;
 
 
 import composite.myPredictionWhatCompositeIs.MenuItem;
+import composite.myPredictionWhatCompositeIs.composite.MenuElementHolder;
 import composite.myPredictionWhatCompositeIs.iterator.ListMenuIterator;
 import composite.myPredictionWhatCompositeIs.iterator.MenuIterator;
 import composite.myPredictionWhatCompositeIs.menu.submenu.ListDessertSubmenu;
@@ -45,25 +46,26 @@ public class ListMenu implements IterableMenu, MenuElementHolder {
         this.menuItems.add(menuItem);
     }
 
+    public List<MenuElementHolder> getMenuItems() {
+        return menuItems;
+    }
 
     @Override
     public MenuIterator createIterator() {
         return new ListMenuIterator(this);
     }
 
-    @Override
-    public String getName() {
-        return ListMenu.name;
-    }
-
 
     @Override
-    public Collection<MenuElementHolder> getMenuElements() {
-        return menuItems.stream().toList();
-    }
+    public void printMenuElementInfo() {
+        System.out.println("WTf!!!!?");
+        System.out.println("MENU: " + name);
 
-    @Override
-    public boolean isContainer() {
-        return true;
+        for(MenuElementHolder holder: menuItems){
+            holder.printMenuElementInfo();
+        }
+
+        System.out.println("");
+
     }
 }

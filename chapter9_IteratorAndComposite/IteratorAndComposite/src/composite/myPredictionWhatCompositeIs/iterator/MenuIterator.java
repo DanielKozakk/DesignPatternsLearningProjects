@@ -1,6 +1,6 @@
 package composite.myPredictionWhatCompositeIs.iterator;
 
-import composite.myPredictionWhatCompositeIs.menu.MenuElementHolder;
+import composite.myPredictionWhatCompositeIs.composite.MenuElementHolder;
 
 public interface MenuIterator {
     MenuElementHolder getNext();
