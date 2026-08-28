@@ -1,24 +1,13 @@
-import iterator.headFirstMenuProblem.Waitress;
-import iterator.headFirstMenuProblem.menu.CafeMenu;
-import iterator.headFirstMenuProblem.menu.DinerMenu;
-import iterator.headFirstMenuProblem.menu.IterableMenu;
-import iterator.headFirstMenuProblem.menu.PancakeHouseMenu;
-import iterator.socialNetworkRefactoringGuru.Profile;
-import iterator.socialNetworkRefactoringGuru.SocialSpammer;
-import iterator.socialNetworkRefactoringGuru.collection.Facebook;
-import iterator.socialNetworkRefactoringGuru.collection.SocialNetwork;
-import iterator.socialNetworkRefactoringGuru.iterator.ProfileIterator;
 
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-void main() {
-    List<IterableMenu> menus = new ArrayList<>(){{
-        add(new DinerMenu());
-        add(new PancakeHouseMenu());
-        add(new CafeMenu());
-    }};
+import compositePrediction.Waitress;
+import compositePrediction.menu.IterableMenu;
+import compositePrediction.menu.ListMenu;
 
-    Waitress waitress = new Waitress(menus);
+void main() {
+  List<IterableMenu> list = List.of(new ListMenu());
+    Waitress waitress = new Waitress(list);
     waitress.print();
 }
 
