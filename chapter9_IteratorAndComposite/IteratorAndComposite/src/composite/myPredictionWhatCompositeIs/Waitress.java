@@ -1,12 +1,11 @@
 package composite.myPredictionWhatCompositeIs;
 
 
-import composite.myPredictionWhatCompositeIs.iterator.MenuIterator;
-import composite.myPredictionWhatCompositeIs.menu.IterableMenu;
-import composite.myPredictionWhatCompositeIs.composite.MenuElementHolder;
-import composite.myPredictionWhatCompositeIs.menu.MenuGeneralComposite;
+import composite.myPredictionWhatCompositeIs.composite.*;
+import composite.myPredictionWhatCompositeIs.iterator.*;
+import composite.myPredictionWhatCompositeIs.menu.*;
+import composite.myPredictionWhatCompositeIs.menu.submenu.*;
 
-import java.util.List;
 
 public class Waitress {
 
