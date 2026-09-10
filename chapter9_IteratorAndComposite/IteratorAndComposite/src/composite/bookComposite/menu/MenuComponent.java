@@ -4,31 +4,35 @@ import java.util.Collection;
 
 public abstract class MenuComponent {
 
-    String getName() {
+    public String getName() {
         throw new UnsupportedOperationException();
     }
 
-    String getDescription() {
+    public String getDescription() {
         throw new UnsupportedOperationException();
     }
 
-    double getPrice() {
+    public double getPrice() {
         throw new UnsupportedOperationException();
     }
 
-    void print() {
+    public boolean isVegetarian() {
         throw new UnsupportedOperationException();
     }
 
-
-    void add(MenuComponent menuComponent) {
+    public void add(MenuComponent menuComponent) {
         throw new UnsupportedOperationException();
     }
 
-    void remove(MenuComponent menuComponent) {
+    public void remove(MenuComponent menuComponent) {
         throw new UnsupportedOperationException();
     }
-    MenuComponent getChild(int id) {
+
+    public MenuComponent getChild(int id) {
+        throw new UnsupportedOperationException();
+    }
+
+    public void print() {
         throw new UnsupportedOperationException();
     }
 
