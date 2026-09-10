@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class PancakeHouseMenu implements IterableMenu, MenuElementHolder {
+public class PancakeHouseMenu extends MenuComponent implements IterableMenu {
     List<MenuItem> menuItems = new ArrayList<>();
 
     public PancakeHouseMenu() {
@@ -45,9 +45,5 @@ public class PancakeHouseMenu implements IterableMenu, MenuElementHolder {
         return new PankackeHouseMenuIterator(this);
     }
 
-    @Override
-    public Collection<MenuElementHolder> getMenuElements() {
-        return menuItems.stream().map(menuItem -> (MenuElementHolder) menuItem).toList();
 
-    }
 }

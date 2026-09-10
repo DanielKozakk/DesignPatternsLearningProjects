@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CafeMenu implements IterableMenu, MenuElementHolder {
+public class CafeMenu extends MenuComponent implements IterableMenu {
     Map<String, MenuItem> menuItems = new HashMap<String, MenuItem>();
 
 
@@ -40,8 +40,5 @@ public class CafeMenu implements IterableMenu, MenuElementHolder {
         return new CafeMenuIterator(this);
     }
 
-    @Override
-    public Collection<MenuElementHolder> getMenuElements() {
-        return menuItems.values().stream().map(menuItem -> (MenuElementHolder) menuItem).toList();
-    }
+
 }

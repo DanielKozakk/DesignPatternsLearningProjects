@@ -2,7 +2,7 @@ package composite.bookComposite.menu;
 
 import java.util.List;
 
-public class MenuItem implements MenuElementHolder {
+public class MenuItem extends MenuComponent {
     String name;
     String description;
     double price;
@@ -32,8 +32,5 @@ public class MenuItem implements MenuElementHolder {
         return vegetarian;
     }
 
-    @Override
-    public List<MenuElementHolder> getMenuElements() {
-        return List.of(this);
-    }
+
 }

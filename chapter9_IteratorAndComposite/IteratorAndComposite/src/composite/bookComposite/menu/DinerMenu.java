@@ -6,7 +6,7 @@ import composite.bookComposite.iterator.MenuIterator;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class DinerMenu implements IterableMenu, MenuElementHolder {
+public class DinerMenu  extends MenuComponent implements IterableMenu{
 
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
@@ -50,12 +50,4 @@ public class DinerMenu implements IterableMenu, MenuElementHolder {
     public int getNumberOfItems() {
         return numberOfItems;
     }
-
-
-    @Override
-    public Collection<MenuElementHolder> getMenuElements() {
-        return Arrays.asList(menuItems);
-
-    }
-
 }
