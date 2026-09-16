@@ -1,24 +1,24 @@
 package refactoringGuru;
 
+import refactoringGuru.state.Draft;
+import refactoringGuru.state.IDocumentState;
+
 public class Document {
 
-    DocumentState documentState = DocumentState.DRAFT;
 
-    public void publishDocument(User user){
-        switch (documentState){
-            case DRAFT -> {
-                documentState = DocumentState.MODERATION;
-                System.out.println("document sent to moderation!");
-            }
-            case DocumentState.MODERATION ->{
-                if(user.role.equals("Admin")) {
-                    documentState = DocumentState.PUBLISHED;
+    IDocumentState iDocumentState = new Draft(this);
 
-                    System.out.println("document published!");
-                } else {
-                    System.out.println("only admin is allowed to publish!");
-                }
-            }
-        }
+    public void changeState(IDocumentState state){
+        iDocumentState = state;
     }
+
+    public void publish(User user){
+        iDocumentState.publish(user);
+    }
+
+    public void render(User user){
+        iDocumentState.render(user);
+    }
+
+
 }
