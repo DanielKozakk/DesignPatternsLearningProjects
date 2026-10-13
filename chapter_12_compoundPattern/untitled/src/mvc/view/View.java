@@ -4,6 +4,8 @@ import mvc.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View extends JFrame {
     Controller controller;
@@ -56,6 +58,28 @@ public class View extends JFrame {
         playButton = new JButton("Play");
         nextSongButton = new JButton("Next Song");
 
+        pauseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pause();
+            }
+        });
+
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(playlist.getSelectedValue());
+                play();
+            }
+        });
+
+        nextSongButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nextSong();
+            }
+        });
+
         controls.add(pauseButton);
         controls.add(playButton);
         controls.add(nextSongButton);
@@ -72,20 +96,20 @@ public class View extends JFrame {
 
 
 
-//
-//    public void playSongById(){
-//
-//    }
-//
-//    public void nextSong(){
-//
-//    }
-//
-//    public void play(){
-//
-//    }
-//
-//    public void pause(){
-//
-//    }
+
+    public void playSongById(){
+
+    }
+
+    public void nextSong(){
+
+    }
+
+    public void play(){
+
+    }
+
+    public void pause(){
+
+    }
 }
