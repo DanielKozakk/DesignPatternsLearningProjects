@@ -8,18 +8,22 @@ import duckReunion.model.goose.GooseAdapter;
 import duckReunion.observer.Observer;
 import duckReunion.observer.QuackableObserver;
 import duckReunion.observer.QuackableSubject;
+import mvc.Controller;
+import mvc.view.View;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
+    Controller controller = new Controller();
+    View view = new View(controller);
+
+
+
 
 
 }
-
-
-
 
 
 
