@@ -20,6 +20,14 @@ public class Controller {
         player.nextSong();
     }
 
+    public int getIdOfCurrentSong(){
+        return player.getCurrentSongId();
+    }
+
+    public void addSong(String name, String author){
+        player.addSong(name, author);
+    }
+
 
 
 }

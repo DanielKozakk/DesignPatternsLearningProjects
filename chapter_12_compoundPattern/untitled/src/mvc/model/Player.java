@@ -82,4 +82,16 @@ public class Player implements Observable {
         return new PlayerStateChangedEvent(currentSong, playerActionStatus);
     }
 
+    public int getCurrentSongId(){
+        return currentSong == null ? 0 : currentSong.getId();
+    }
+
+    public void addSong(String name, String author){
+        Song newSong = new Song(name, author);
+        addSongToPlaylist(newSong);
+        notifyObservers(getPlaylistUpdatedEvent());
+
+    }
+
+
 }
