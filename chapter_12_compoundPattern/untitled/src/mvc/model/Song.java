@@ -3,9 +3,9 @@ package mvc.model;
 public class Song {
     private static int availableId = 0;
 
-    int id;
-    String name;
-    String author;
+    private int id;
+    private String name;
+    private String author;
 
     public Song( String name, String author) {
         this.name = name;
@@ -24,5 +24,10 @@ public class Song {
 
     public String getAuthor() {
         return author;
+    }
+
+    @Override
+    public String toString() {
+        return name + " - " + author;
     }
 }

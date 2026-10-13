@@ -1,15 +1,22 @@
 package mvc.model;
 
+import mvc.model.observer.event.Event;
+import mvc.model.observer.Observable;
+import mvc.model.observer.Observer;
+import mvc.model.observer.event.PlaylistUpdatedEvent;
+
 import java.util.*;
 
-public class Player {
+public class Player implements Observable {
 
-    PlayerStatus playerStatus = PlayerStatus.PAUSED;
-    Song currentSong = null;
+    private PlayerStatus playerStatus = PlayerStatus.PAUSED;
+    private Song currentSong = null;
 
-    Map<Integer, Song> playlist = new HashMap<Integer, Song>();
+    private Map<Integer, Song> playlist = new HashMap<Integer, Song>();
 
-    public Player() {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void init(){
 
         Song first = new Song("Imagine", "John Lennon");
         Song second = new Song("Master of Puppets", "Metallica");
@@ -22,6 +29,8 @@ public class Player {
         addSongToPlaylist(third);
         addSongToPlaylist(fourth);
         addSongToPlaylist(fifth);
+
+        notifyObservers(getPlaylistUpdatedEvent());
     }
 
     private void addSongToPlaylist(Song song) {
@@ -39,11 +48,46 @@ public class Player {
         currentSong = playlist.get(nextId);
     }
 
-    public void play() {
+    public void play(int id) {
+        currentSong = playlist.get(id);
         playerStatus = PlayerStatus.PLAY;
     }
+
 
     public void pause() {
         playerStatus = PlayerStatus.PAUSED;
     }
+
+    public PlayerStatus getPlayerStatus() {
+        return playerStatus;
+    }
+
+    public String getCurrentSongName(){
+        return currentSong.getName();
+    }
+
+    public String getCurrentSongAuthor(){
+        return currentSong.getAuthor();
+    }
+
+    public Map<Integer, Song> getPlaylist() {
+        return playlist;
+    }
+
+    @Override
+    public void notifyObservers(Event event) {
+        for(Observer observer: observers){
+            observer.update(event);
+        }
+    }
+
+    @Override
+    public void subscribe(Observer observer) {
+        observers.add(observer);
+    }
+
+    public PlaylistUpdatedEvent getPlaylistUpdatedEvent(){
+        return new PlaylistUpdatedEvent(playlist.values().stream().toList());
+    }
+
 }

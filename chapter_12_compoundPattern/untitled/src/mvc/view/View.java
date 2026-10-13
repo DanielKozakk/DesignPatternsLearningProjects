@@ -1,16 +1,22 @@
 package mvc.view;
 
 import mvc.Controller;
+import mvc.model.Song;
+import mvc.model.observer.event.Event;
+import mvc.model.observer.event.EventType;
+import mvc.model.observer.Observer;
+import mvc.model.observer.event.PlaylistUpdatedEvent;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class View extends JFrame {
+public class View extends JFrame implements Observer {
     Controller controller;
 
-    public JList<String> playlist;
+    public JList<Song> playlist;
     public JLabel currentSong;
     public JButton pauseButton;
     public JButton playButton;
@@ -24,15 +30,9 @@ public class View extends JFrame {
         setLayout(new BorderLayout(10, 10));
 
         // Playlist at the top
-        String[] songs = {
-                "Imagine - John Lennon",
-                "Hotel California - Eagles",
-                "Sweet Child O' Mine - Guns N' Roses",
-                "Billie Jean - Michael Jackson",
-                "Nothing Else Matters - Metallica"
-        };
+//      Song[] songs  = controller.getPlaylist().toArray(Song[]::new);
 
-        playlist = new JList<>(songs);
+        playlist = new JList<>();
         playlist.setSelectionMode(
                 ListSelectionModel.SINGLE_SELECTION
         );
@@ -68,7 +68,7 @@ public class View extends JFrame {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(playlist.getSelectedValue());
+//                System.out.println(playlist.getSelected());
                 play();
             }
         });
@@ -93,10 +93,6 @@ public class View extends JFrame {
 
     }
 
-
-
-
-
     public void playSongById(){
 
     }
@@ -112,4 +108,13 @@ public class View extends JFrame {
     public void pause(){
 
     }
+
+    @Override
+    public void update(Event event) {
+        if(event instanceof PlaylistUpdatedEvent){
+            playlist.setListData(((PlaylistUpdatedEvent) event).getPlaylist().toArray(Song[]::new));
+        }
+    }
+
+
 }

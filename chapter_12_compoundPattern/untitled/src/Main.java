@@ -9,6 +9,7 @@ import duckReunion.observer.Observer;
 import duckReunion.observer.QuackableObserver;
 import duckReunion.observer.QuackableSubject;
 import mvc.Controller;
+import mvc.model.Player;
 import mvc.view.View;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -16,8 +17,15 @@ import mvc.view.View;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
-    Controller controller = new Controller();
+    Player player = new Player();
+    Controller controller = new Controller(player);
     View view = new View(controller);
+
+    player.subscribe(view);
+
+    player.init();
+
+
 
 
 
