@@ -3,13 +3,14 @@ package mvc.model;
 import mvc.model.observer.event.Event;
 import mvc.model.observer.Observable;
 import mvc.model.observer.Observer;
+import mvc.model.observer.event.PlayerStateChangedEvent;
 import mvc.model.observer.event.PlaylistUpdatedEvent;
 
 import java.util.*;
 
 public class Player implements Observable {
 
-    private PlayerStatus playerStatus = PlayerStatus.PAUSED;
+    private PlayerActionStatus playerActionStatus = PlayerActionStatus.PAUSED;
     private Song currentSong = null;
 
     private Map<Integer, Song> playlist = new HashMap<Integer, Song>();
@@ -46,33 +47,21 @@ public class Player implements Observable {
             nextId = currentSong.getId() + 1;
         }
         currentSong = playlist.get(nextId);
+        notifyObservers(getPlayerStateChangedEvent());
     }
 
     public void play(int id) {
         currentSong = playlist.get(id);
-        playerStatus = PlayerStatus.PLAY;
+        playerActionStatus = PlayerActionStatus.PLAY;
+        notifyObservers(getPlayerStateChangedEvent());
     }
 
 
     public void pause() {
-        playerStatus = PlayerStatus.PAUSED;
+        playerActionStatus = PlayerActionStatus.PAUSED;
+        notifyObservers(getPlayerStateChangedEvent());
     }
 
-    public PlayerStatus getPlayerStatus() {
-        return playerStatus;
-    }
-
-    public String getCurrentSongName(){
-        return currentSong.getName();
-    }
-
-    public String getCurrentSongAuthor(){
-        return currentSong.getAuthor();
-    }
-
-    public Map<Integer, Song> getPlaylist() {
-        return playlist;
-    }
 
     @Override
     public void notifyObservers(Event event) {
@@ -88,6 +77,9 @@ public class Player implements Observable {
 
     public PlaylistUpdatedEvent getPlaylistUpdatedEvent(){
         return new PlaylistUpdatedEvent(playlist.values().stream().toList());
+    }
+    public PlayerStateChangedEvent getPlayerStateChangedEvent(){
+        return new PlayerStateChangedEvent(currentSong, playerActionStatus);
     }
 
 }
